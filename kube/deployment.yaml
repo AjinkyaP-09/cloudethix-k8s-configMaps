@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-webapp-deployment
+  labels:
+    app: frontend-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend-webapp
+  template:
+    metadata:
+      labels:
+        app: frontend-webapp
+    spec:
+      containers:
+      - name: frontend-webapp-container
+        image: ajinkyap009/cloudethix_configmap_ajinkya:v1
+        ports:
+        - containerPort: 80
